@@ -1,0 +1,63 @@
+/* LegalPage.css */
+
+.legal-container {
+  max-width: 800px; /* 限制内容宽度 */
+  margin: 50px auto 20px auto; /* 顶部、左右自动，底部留白 */
+  padding: 20px; /* 内边距 */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 字体 */
+  line-height: 1.6; /* 行高 */
+  color: #333; /* 文字颜色 */
+}
+
+.legal-container h1 {
+  font-size: 2.2em;
+  color: #333;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.legal-container h2 {
+  font-size: 1.6em;
+  color: #555;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.legal-container p {
+  margin-bottom: 10px;
+  font-size: 1em;
+}
+
+.legal-container section {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee; /* 分隔线 */
+}
+
+.legal-container section:last-child {
+  border-bottom: none;
+}
+
+/* 手机端适配 */
+@media (max-width: 600px) {
+  .legal-container {
+    margin-top: 20px; /* 手机端顶部间距 */
+    padding: 15px;
+  }
+
+  .legal-container h1 {
+    font-size: 1.8em;
+    margin-bottom: 25px;
+  }
+
+  .legal-container h2 {
+    font-size: 1.4em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .legal-container p,
+  .legal-container li {
+    font-size: 0.95em;
+  }
+} 

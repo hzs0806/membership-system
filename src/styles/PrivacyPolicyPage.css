@@ -1,0 +1,86 @@
+/* PrivacyPolicyPage.css */
+
+.privacy-policy-container {
+  max-width: 800px; /* 限制内容宽度 */
+  margin: 50px auto 20px auto; /* 顶部、左右自动，底部留白 */
+  padding: 20px; /* 内边距 */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 字体 */
+  line-height: 1.6; /* 行高 */
+  color: #333; /* 文字颜色 */
+}
+
+.privacy-policy-container h1 {
+  font-size: 2.2em;
+  color: #333;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.privacy-policy-container h2 {
+  font-size: 1.6em;
+  color: #555;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.privacy-policy-container h3 {
+  font-size: 1.2em;
+  color: #666;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.privacy-policy-container p {
+  margin-bottom: 10px;
+  font-size: 1em;
+}
+
+.privacy-policy-container ol,
+.privacy-policy-container ul {
+  margin-bottom: 10px;
+  padding-left: 20px;
+}
+
+.privacy-policy-container li {
+  margin-bottom: 8px;
+}
+
+.privacy-policy-container section {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee; /* 分隔线 */
+}
+
+.privacy-policy-container section:last-child {
+  border-bottom: none;
+}
+
+/* 手机端适配 */
+@media (max-width: 600px) {
+  .privacy-policy-container {
+    margin-top: 20px; /* 手机端顶部间距 */
+    padding: 15px;
+  }
+
+  .privacy-policy-container h1 {
+    font-size: 1.8em;
+    margin-bottom: 25px;
+  }
+
+  .privacy-policy-container h2 {
+    font-size: 1.4em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .privacy-policy-container h3 {
+    font-size: 1.1em;
+    margin-top: 15px;
+    margin-bottom: 8px;
+  }
+
+  .privacy-policy-container p,
+  .privacy-policy-container li {
+    font-size: 0.95em;
+  }
+} 

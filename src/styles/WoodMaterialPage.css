@@ -1,0 +1,171 @@
+.material-page {
+  padding: 60px 0 40px 0;
+  background: #fafbfc;
+  min-height: 100vh;
+}
+.material-main-title {
+  font-size: 2.8em;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 99px;
+  letter-spacing: 2px;
+  text-align: left;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.material-nav {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  padding: 0 0 0 2px;
+  margin: 0 auto 18px auto;
+  max-width: 1200px;
+  font-size: 1.1em;
+  color: #888;
+  border-bottom: 1px solid #eee;
+  background: transparent;
+}
+.material-nav li {
+  padding: 0 8px 12px 8px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #888;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-bottom 0.2s;
+}
+.material-nav li.active {
+  color: #222;
+  font-weight: bold;
+  border-bottom: 2px solid #b48a5b;
+}
+.material-subtitle {
+  color: #888;
+  font-size: 1.25em;
+  margin: 32px auto 36px auto;
+  max-width: 1200px;
+  text-align: left;
+  font-weight: 500;
+}
+.material-card-list {
+  display: flex;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  justify-content: flex-start;
+  padding-bottom: 12px;
+}
+.material-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  width: 420px;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 28px 24px 24px 24px;
+  position: relative;
+  transition: box-shadow 0.2s;
+  flex: 0 0 auto;
+}
+.material-card:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+}
+.material-card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 18px;
+}
+.material-card-title {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 10px;
+}
+.material-card-desc {
+  color: #666;
+  font-size: 1em;
+  margin-bottom: 18px;
+}
+.material-card-btn {
+  background: #007aff;
+  color: #fff;
+  border: none;
+  border-radius: 18px;
+  padding: 8px 28px;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  align-self: flex-end;
+  transition: background 0.2s;
+}
+.material-card-btn:hover {
+  background: #005bb5;
+}
+.material-choose-tip {
+  color: #b48a5b;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 32px;
+  letter-spacing: 2px;
+}
+.material-card-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-top: 18px;
+  position: relative;
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+}
+.material-slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background: rgba(255,255,255,0.85);
+  border: none;
+  color: #222;
+  font-size: 2.2em;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+  opacity: 0.85;
+}
+.material-slider-btn.left {
+  left: 0;
+}
+.material-slider-btn.right {
+  right: 0;
+}
+.material-slider-btn:disabled {
+  color: #ccc;
+  background: rgba(245,245,245,0.7);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.material-card-list.no-scroll {
+  display: flex;
+  gap: 32px;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+  max-width: none;
+  justify-content: flex-start;
+} 

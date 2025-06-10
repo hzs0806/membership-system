@@ -1,0 +1,455 @@
+/* LandingPageStyles.css */
+
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(-20px); /* 从上方开始 */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInOnly {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* 顶部条通用样式 */
+.top-bar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 44px;
+  background-color: white;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 0 22px;
+  box-sizing: border-box;
+}
+
+/* 桌面导航样式 */
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  background-color: white;
+  justify-content: space-between;
+  position: relative; /* 重新添加相对定位 */
+}
+
+.desktop-nav .nav-logo {
+  margin-right: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.desktop-nav .nav-logo a {
+  text-decoration: none;
+}
+
+.desktop-nav .nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.desktop-nav .nav-links li {
+  margin-right: 50px;
+  font-size: 0.85em;
+  color: #333;
+  cursor: pointer;
+}
+
+.desktop-nav .nav-links li:hover {
+  opacity: 0.7;
+}
+
+/* 禁用链接样式 */
+.disabled-link {
+  color: #ccc !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+  opacity: 1 !important;
+}
+
+.desktop-nav .nav-icons {
+  display: flex;
+  align-items: center;
+}
+
+.desktop-nav .nav-icons svg {
+  margin-left: 50px;
+  cursor: pointer;
+}
+
+.desktop-nav .nav-icons svg:hover {
+  opacity: 0.7;
+}
+
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background-image: url('../assets/images/ppdxbackground.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  text-align: center;
+  padding-top: 0;
+  margin-top: 0;
+  opacity: 0; /* 初始状态设置为透明 */
+  transform: translateY(20px); /* 初始状态向下偏移 */
+  animation: fadeInSlideUp 1s ease-out forwards; /* 应用动画，比文本动画稍长 */
+}
+
+.landing-page-content {
+  padding-top: 0;
+  margin-top: 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.landing-page h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  opacity: 0; /* 初始状态设置为透明 */
+  transform: translateY(20px); /* 初始状态向下偏移 */
+  animation: fadeInSlideUp 0.8s ease-out forwards 0.3s; /* 应用动画，增加延迟 */
+}
+
+.landing-page p {
+  display: block !important;
+}
+
+.landing-page .login-button {
+  display: inline-block !important;
+  padding: 15px 30px;
+  background-color: #007aff;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 1.1em;
+  opacity: 0; /* 初始状态设置为透明 */
+  animation: fadeInOnly 1.5s ease-out forwards 1s; /* 将动画时长改为1.5秒 */
+}
+
+.landing-page .login-button:hover {
+  background-color: #005bb5;
+}
+
+/* 默认隐藏图标容器 */
+.mobile-menu-icon-container {
+  display: none;
+}
+
+/* 默认隐藏左侧图标容器 */
+.mobile-left-icons {
+  display: none;
+}
+
+/* 默认隐藏右侧图标容器 */
+.mobile-right-icons {
+  display: none;
+}
+
+/* 桌面端适配 */
+@media (min-width: 601px) {
+  .mobile-menu-icon-container {
+    display: none;
+  }
+
+  .top-bar {
+    top: 0;
+    background-color: white;
+    opacity: 1;
+  }
+
+  .desktop-nav {
+    display: flex;
+    background-color: white;
+  }
+
+  .desktop-nav .nav-icons {
+    /* 移除 display: none; 以便电脑端图标可见 */
+  }
+
+  .landing-page {
+    padding-top: 0px;
+    margin-top: 0;
+  }
+
+  .landing-page-content {
+    padding-top: 0;
+    margin-top: 0;
+  }
+}
+
+/* 手机端适配 */
+@media (max-width: 600px) {
+  .top-bar {
+    padding: 10px 20px;
+    justify-content: space-between;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
+  .mobile-left-icons {
+    display: flex !important;
+    align-items: center;
+  }
+
+  .mobile-right-icons {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .mobile-menu-icon-container {
+    display: block !important;
+    position: static;
+    top: auto;
+    right: auto;
+    z-index: auto;
+    width: 20px;
+    height: 20px;
+    pointer-events: auto;
+    background: transparent;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .mobile-menu-icon-container.menu-open {
+    transform: rotate(90deg);
+    pointer-events: auto;
+  }
+
+  .landing-page {
+    padding: 0;
+    margin: 0;
+    opacity: 0; /* 初始状态设置为透明 */
+    transform: translateY(20px); /* 初始状态向下偏移 */
+    animation: fadeInSlideUp 1s ease-out forwards; /* 应用动画，比文本动画稍长 */
+  }
+  
+  .landing-page-content {
+    padding-top: 0;
+    margin-top: 0;
+  }
+
+  .landing-page h1 {
+    font-size: 2em; /* 调整字体大小，使其更大 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 10px;
+    margin-bottom: 15px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp 0.8s ease-out forwards 0.3s;
+  }
+
+  .landing-page .login-button {
+    opacity: 0; /* 初始状态设置为透明 */
+    animation: fadeInOnly 1.5s ease-out forwards 1s; /* 将动画时长改为1.5秒 */
+  }
+}
+
+/* 手机竖屏模式下的特定样式 */
+@media (max-width: 600px) and (orientation: portrait) {
+  .landing-page {
+    background-image: url('../assets/images/ppdxbackground.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+.mobile-left-icons a {
+  text-decoration: none;
+}
+
+/* 知识标签下拉菜单样式 - 全宽面板 */
+.knowledge-link-trigger {
+  position: relative; /* 保持相对定位，用于触发 */
+  height: 44px; /* 设置与导航栏一致的高度 */
+  display: flex;
+  align-items: center;
+}
+
+.knowledge-dropdown-full-width {
+  position: fixed; /* 改为固定定位，相对于视口 */
+  top: 44px; /* 紧贴导航栏下方 */
+  left: 0;
+  right: 0; /* 添加 right: 0 */
+  margin: auto; /* 添加 margin: auto 实现水平居中 */
+  width: 100%; /* 占据可用宽度 */
+  background-color: white;
+  z-index: 999; /* 确保在导航栏下方，但高于其他内容 */
+  padding: 20px 0; /* 还原上内边距 */
+  box-sizing: border-box;
+  height: calc(50vh - 44px); /* 高度为视口高度的50%减去导航栏高度 */
+  overflow-y: auto; /* 如果内容溢出，允许滚动 */
+  display: flex;
+
+  /* 动画效果 */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px); /* 初始状态向上偏移 */
+  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, transform 0.2s ease-in-out; /* 缩短收回动画时间 */
+}
+
+.knowledge-dropdown-full-width.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0); /* 显示时回到原位 */
+}
+
+.knowledge-categories-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row; /* 水平排列 */
+  gap: 199px; /* 增加水平间距 */
+  align-items: center; /* 垂直居中 */
+  padding-left: 399px; /* 设置左内边距以调整起始水平位置 */
+  justify-content: flex-start; /* 改为左对齐 */
+}
+
+.knowledge-categories-list li {
+  padding: 0; /* 移除 padding，由内部元素控制 */
+  font-size: 1.1em; /* 调整字体大小 */
+  color: #333;
+  cursor: pointer;
+  text-align: left; /* 改为左对齐 */
+  box-sizing: border-box;
+  width: auto; /* 宽度由内容决定 */
+  /* 动画效果 */
+  opacity: 0; /* 初始状态隐藏 */
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out; /* 添加动画 */
+}
+
+/* 子分类样式 */
+.knowledge-sub-categories {
+  list-style: none;
+  padding: 0;
+  margin: 5px 0 0 0; /* 子分类顶部间距 */
+  text-align: left; /* 左对齐 */
+}
+
+.knowledge-sub-categories li {
+  padding: 0; /* 移除 padding，由内部元素控制 */
+  font-size: 0.9em; /* 较小的字体 */
+  cursor: pointer;
+}
+
+.knowledge-sub-categories li a {
+  text-decoration: none;
+  color: #666; /* 直接设置子分类文字颜色为灰色 */
+  display: block;
+  font-weight: normal; /* 子分类文字不加粗 */
+  padding: 5px 20px; /* 调整子分类链接的内边距 */
+}
+
+.knowledge-sub-categories li a:hover {
+  color: #007aff; /* 悬停颜色 */
+}
+
+/* 为列表项添加默认延迟，用于关闭动画（反向顺序） */
+.knowledge-categories-list li:nth-child(1) {
+  transform: translateY(10px); /* 仅保留 translateY */
+  transition-delay: 0.4s;
+}
+.knowledge-categories-list li:nth-child(2) {
+  transform: translateY(10px); /* 仅保留 translateY */
+  transition-delay: 0.3s;
+}
+.knowledge-categories-list li:nth-child(3) {
+  transform: translateY(10px); /* 仅保留 translateY */
+  transition-delay: 0.2s;
+}
+.knowledge-categories-list li:nth-child(4) {
+  transform: translateY(10px); /* 仅保留 translateY */
+  transition-delay: 0.1s;
+}
+
+.knowledge-dropdown-full-width.show .knowledge-categories-list li {
+  opacity: 1;
+  transform: translateY(0); /* 显示时恢复到 Y 轴原位 */
+  /* 覆盖默认延迟，用于打开动画（正常顺序） */
+  transition-delay: 0s; /* 重置默认延迟 */
+}
+
+.knowledge-dropdown-full-width.show .knowledge-categories-list li:nth-child(1) { transition-delay: 0.1s; }
+.knowledge-dropdown-full-width.show .knowledge-categories-list li:nth-child(2) { transition-delay: 0.2s; }
+.knowledge-dropdown-full-width.show .knowledge-categories-list li:nth-child(3) { transition-delay: 0.3s; }
+.knowledge-dropdown-full-width.show .knowledge-categories-list li:nth-child(4) { transition-delay: 0.4s; }
+
+/* 移除垂直间距 */
+.knowledge-categories-list li:not(:last-child) {
+  margin-bottom: 0; 
+}
+
+.knowledge-categories-list li a {
+  text-decoration: none;
+  color: #333; /* 主分类文字默认深灰色 */
+  display: block;
+  font-weight: 600; /* 调整字体粗细 */
+  padding: 12px 20px; /* 还原内边距，使文字在链接内居中 */
+}
+
+/* 毛玻璃背景遮罩层样式和动画 */
+.backdrop-blur-overlay {
+  position: fixed;
+  top: 44px; /* 从导航栏下方开始 */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.1); /* 半透明背景 */
+  backdrop-filter: blur(5px); /* 毛玻璃效果 */
+  -webkit-backdrop-filter: blur(5px); /* 兼容 Safari */
+  z-index: 998; /* 在下拉菜单下方，但高于其他内容 */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in, visibility 0.3s ease-in;
+}
+
+.backdrop-blur-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}

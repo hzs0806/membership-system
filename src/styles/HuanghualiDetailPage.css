@@ -1,0 +1,107 @@
+.hh-detail-root {
+  padding: 60px 0 40px 0;
+  background: #fafbfc;
+  min-height: 100vh;
+}
+.hh-main-title {
+  font-size: 2.4em;
+  font-weight: bold;
+  color: #b48a5b;
+  margin-bottom: 36px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+.hh-section {
+  max-width: 900px;
+  margin: 0 auto 48px auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  padding: 36px 32px 28px 32px;
+}
+.hh-section-title {
+  font-size: 1.35em;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 22px;
+  letter-spacing: 1px;
+}
+.hh-section-content {
+  color: #444;
+  font-size: 1.08em;
+  line-height: 1.85;
+}
+.hh-card-grid {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.hh-card {
+  background: #faf7f2;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(180,138,91,0.07);
+  padding: 22px 20px 18px 20px;
+  flex: 1 1 320px;
+  min-width: 260px;
+  margin-bottom: 18px;
+}
+.hh-card-label {
+  color: #b48a5b;
+  font-weight: bold;
+  font-size: 1.08em;
+  margin-bottom: 8px;
+}
+.hh-card-content {
+  color: #444;
+  font-size: 1em;
+}
+.hh-feature-list {
+  margin-bottom: 12px;
+}
+.hh-feature-item {
+  margin-bottom: 10px;
+  color: #444;
+  font-size: 1em;
+}
+.hh-feature-label {
+  color: #b48a5b;
+  font-weight: bold;
+}
+.hh-identify-table, .hh-fake-table {
+  width: 100%;
+  border-radius: 10px;
+  background: #f6f6f6;
+  margin: 18px 0 10px 0;
+  overflow: hidden;
+  font-size: 1em;
+}
+.hh-identify-row, .hh-fake-row {
+  display: flex;
+  border-bottom: 1px solid #ececec;
+}
+.hh-identify-row:last-child, .hh-fake-row:last-child {
+  border-bottom: none;
+}
+.hh-identify-header, .hh-fake-header {
+  background: #f0e7db;
+  color: #b48a5b;
+  font-weight: bold;
+}
+.hh-identify-row > div, .hh-fake-row > div {
+  flex: 1 1 0;
+  padding: 12px 10px;
+  min-width: 80px;
+  word-break: break-all;
+}
+@media (max-width: 900px) {
+  .hh-section {
+    padding: 20px 8px 16px 8px;
+  }
+  .hh-main-title {
+    font-size: 1.5em;
+  }
+  .hh-card-grid {
+    flex-direction: column;
+    gap: 12px;
+  }
+} 

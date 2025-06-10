@@ -1,0 +1,23 @@
+/* 基础样式 */
+html, body, .App {
+  background-color: white !important; /* 统一背景色为白色，避免过渡时的视觉跳动 */
+  text-align: center;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+.App-header {
+  background-color: #ffffff; /* 示例白色背景，后续调整 */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #333; /* 示例文字颜色 */
+}
+
+/* 后续会添加更多样式 */ 
