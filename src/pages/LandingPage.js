@@ -35,7 +35,7 @@ function LandingPage() {
     // 从列表中移除已选短语
     const newStoredPhrases = storedPhrases.filter(phrase => phrase !== selectedPhrase);
     localStorage.setItem('displayedPhrases', JSON.stringify(newStoredPhrases));
-  }, []); // 空依赖数组确保只在组件挂载时运行一次
+  }, [phrases]); // 加入 phrases 依赖
 
   return (
     <Layout>
