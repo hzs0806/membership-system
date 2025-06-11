@@ -78,6 +78,7 @@ html, body {
   font-size: 0.85em;
   color: #333;
   cursor: pointer;
+  position: relative;
 }
 
 .desktop-nav .nav-links li:hover {
@@ -88,7 +89,7 @@ html, body {
 .disabled-link {
   color: #ccc !important;
   cursor: not-allowed !important;
-  pointer-events: none !important;
+  pointer-events: auto !important;
   opacity: 1 !important;
 }
 
@@ -112,6 +113,7 @@ html, body {
   align-items: center;
   min-height: 100vh;
   width: 100%;
+  background-color: #f5f5f5;
   background-image: url('../assets/images/ppdxbackground.jpg');
   background-size: cover;
   background-position: center center;
@@ -120,9 +122,15 @@ html, body {
   text-align: center;
   padding-top: 0;
   margin-top: 0;
-  opacity: 0; /* 初始状态设置为透明 */
-  transform: translateY(20px); /* 初始状态向下偏移 */
-  animation: fadeInSlideUp 1s ease-out forwards; /* 应用动画，比文本动画稍长 */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInSlideUp 1s ease-out forwards;
+  will-change: transform, opacity;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.landing-page.images-loaded {
+  opacity: 1;
 }
 
 .landing-page-content {
@@ -452,4 +460,49 @@ html, body {
 .backdrop-blur-overlay.show {
   opacity: 1;
   visibility: visible;
+}
+
+/* 移除响应式背景图片支持，因为图片文件还不存在 */
+/* @media (max-width: 768px) {
+  .landing-page {
+    background-image: url('../assets/images/ppdxbackground-mobile.jpg');
+  }
+} */
+
+/* 移除高分辨率屏幕支持，因为图片文件还不存在 */
+/* @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .landing-page {
+    background-image: url('../assets/images/ppdxbackground@2x.jpg');
+  }
+} */
+
+/* 提示框样式 */
+.tooltip {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+  z-index: 1000;
+  margin-top: 8px;
+  pointer-events: none;
+  opacity: 1;
+  visibility: visible;
+  backdrop-filter: blur(4px);
+}
+
+.tooltip::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 0 6px 6px 6px;
+  border-style: solid;
+  border-color: transparent transparent rgba(0, 0, 0, 0.4) transparent;
 }

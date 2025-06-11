@@ -9,6 +9,8 @@ import MobileMenu from './MobileMenu';
 const Layout = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showKnowledgeCategories, setShowKnowledgeCategories] = useState(false);
+  const [showSupportCategories, setShowSupportCategories] = useState(false);
+  const [hoveredItem, setHoveredItem] = useState(null);
   const hideTimeoutRef = useRef(null); // Ref to store the timeout ID
 
   const toggleMenu = () => {
@@ -64,17 +66,40 @@ const Layout = ({ children }) => {
     }
   ];
 
-  const handleMouseEnter = () => {
+  const supportCategories = [
+    {
+      text: "AI材质初级鉴别",
+      url: "/support/ai-identification"
+    }
+  ];
+
+  // 判断按钮是否启用
+  const isButtonEnabled = (link) => {
+    return link === "支持服务";
+  };
+
+  const handleMouseEnter = (link) => {
     if (hideTimeoutRef.current) {
       clearTimeout(hideTimeoutRef.current);
     }
-    setShowKnowledgeCategories(true);
+    setHoveredItem(link);
+    
+    // 根据不同的按钮显示不同的下拉菜单
+    if (link === "知识" && isButtonEnabled(link)) {
+      setShowKnowledgeCategories(true);
+      setShowSupportCategories(false);
+    } else if (link === "支持服务") {
+      setShowSupportCategories(true);
+      setShowKnowledgeCategories(false);
+    }
   };
 
   const handleMouseLeave = () => {
     hideTimeoutRef.current = setTimeout(() => {
       setShowKnowledgeCategories(false);
-    }, 100); // Small delay (e.g., 100ms)
+      setShowSupportCategories(false);
+      setHoveredItem(null);
+    }, 100);
   };
 
   return (
@@ -91,17 +116,25 @@ const Layout = ({ children }) => {
               <React.Fragment key={index}>
                 {link === "知识" ? (
                   <li
-                    className={`knowledge-link-trigger`}
-                    onMouseEnter={handleMouseEnter}
+                    className={isButtonEnabled(link) ? "" : "disabled-link"}
+                    onMouseEnter={() => handleMouseEnter(link)}
                     onMouseLeave={handleMouseLeave}
                   >
                     {link}
+                    {hoveredItem === link && !isButtonEnabled(link) && (
+                      <div className="tooltip" style={{ display: 'block' }}>建设中，敬请期待！</div>
+                    )}
                   </li>
                 ) : (
                   <li
-                    className={`${link === "鉴定" ? "disabled-link" : ""}`}
+                    className={isButtonEnabled(link) ? "" : "disabled-link"}
+                    onMouseEnter={() => handleMouseEnter(link)}
+                    onMouseLeave={handleMouseLeave}
                   >
                     {link}
+                    {hoveredItem === link && !isButtonEnabled(link) && (
+                      <div className="tooltip" style={{ display: 'block' }}>建设中，敬请期待！</div>
+                    )}
                   </li>
                 )}
               </React.Fragment>
@@ -113,7 +146,7 @@ const Layout = ({ children }) => {
           </div>
         </div>
 
-        {/* 下拉菜单和背景遮罩现在都在顶层，由 Layout 组件控制其显示 */}
+        {/* 知识下拉菜单 */}
         <div
           className={`knowledge-dropdown-full-width ${showKnowledgeCategories ? 'show' : ''}`}
           onMouseEnter={handleMouseEnter}
@@ -137,8 +170,23 @@ const Layout = ({ children }) => {
           </ul>
         </div>
 
+        {/* 支持服务下拉菜单 */}
+        <div
+          className={`knowledge-dropdown-full-width ${showSupportCategories ? 'show' : ''}`}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <ul className="knowledge-categories-list">
+            {supportCategories.map((item, itemIndex) => (
+              <li key={itemIndex}>
+                <Link to={item.url}>{item.text}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
         {/* 毛玻璃背景遮罩层 */}
-        <div className={`backdrop-blur-overlay ${showKnowledgeCategories ? 'show' : ''}`}></div>
+        <div className={`backdrop-blur-overlay ${(showKnowledgeCategories || showSupportCategories) ? 'show' : ''}`}></div>
 
         <div className="mobile-left-icons">
           <Link to="/">
