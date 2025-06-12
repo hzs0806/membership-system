@@ -67,10 +67,7 @@ const Layout = ({ children }) => {
   ];
 
   const supportCategories = [
-    {
-      text: "AI材质初级鉴别",
-      url: "/support/ai-identification"
-    }
+    // Removed "AI材质初级鉴别" from supportCategories
   ];
 
   // 判断按钮是否启用

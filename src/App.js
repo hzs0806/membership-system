@@ -9,7 +9,6 @@ import TermsPage from './pages/TermsPage';
 import WoodMaterialPage from './pages/WoodMaterialPage';
 import HuanghualiDetailPage from './pages/HuanghualiDetailPage';
 import Layout from './components/Layout';
-import AIIdentification from './pages/AIIdentification';
 
 function AppContent() {
   return (
@@ -23,7 +22,6 @@ function AppContent() {
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/knowledge/material/wood" element={<WoodMaterialPage />} />
           <Route path="/knowledge/material/wood/huanghuali" element={<HuanghualiDetailPage />} />
-          <Route path="/support/ai-identification" element={<AIIdentification />} />
         </Routes>
       </div>
     </Layout>

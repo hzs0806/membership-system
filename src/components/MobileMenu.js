@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import '../styles/MobileMenu.css';
 
 function MobileMenu({ isOpen, onClose }) {
   const location = useLocation();
-  const navigate = useNavigate();
   const [clickedItem, setClickedItem] = useState(null);
   const [showTooltip, setShowTooltip] = useState(false);
   const [showSupportSubmenu, setShowSupportSubmenu] = useState(false);
@@ -62,7 +61,7 @@ function MobileMenu({ isOpen, onClose }) {
   };
 
   const supportSubmenuItems = [
-    { id: 'ai-identification', text: 'AI材质初级鉴别', path: '/support/ai-identification' }
+    // { id: 'ai-identification', text: 'AI材质初级鉴别', path: '/support/ai-identification' }
   ];
 
   return (

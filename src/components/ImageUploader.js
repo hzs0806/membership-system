@@ -5,7 +5,6 @@ const ImageUploader = ({ onImageSelect }) => {
   const [previewUrl, setPreviewUrl] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
   const fileInputRef = useRef(null);
-  const [isLoading, setIsLoading] = useState(false);
 
   // 检测是否为移动设备
   useEffect(() => {
@@ -48,7 +47,6 @@ const ImageUploader = ({ onImageSelect }) => {
           <button 
             className="upload-button camera"
             onClick={handleCameraClick}
-            disabled={isLoading}
           >
             <span className="icon">📷</span>
             <span>拍照</span>
@@ -57,7 +55,6 @@ const ImageUploader = ({ onImageSelect }) => {
         <button 
           className="upload-button gallery"
           onClick={handleGalleryClick}
-          disabled={isLoading}
         >
           <span className="icon">🖼️</span>
           <span>从相册选择</span>
@@ -84,13 +81,6 @@ const ImageUploader = ({ onImageSelect }) => {
           >
             重新选择
           </button>
-        </div>
-      )}
-
-      {isLoading && (
-        <div className="loading-overlay">
-          <div className="loading-spinner"></div>
-          <p>正在分析图片...</p>
         </div>
       )}
     </div>
