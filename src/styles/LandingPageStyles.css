@@ -73,24 +73,37 @@ html, body {
   justify-content: center;
 }
 
+/* 基础样式 */
 .desktop-nav .nav-links li {
-  margin-right: 50px;
-  font-size: 0.85em;
   color: #333;
   cursor: pointer;
   position: relative;
+  white-space: nowrap;
 }
 
-.desktop-nav .nav-links li:hover {
-  opacity: 0.7;
+@media (min-width: 1025px) {
+  .desktop-nav .nav-links li {
+    font-size: 1em;
+    margin-right: 50px;
+  }
 }
-
-/* 禁用链接样式 */
-.disabled-link {
-  color: #ccc !important;
-  cursor: not-allowed !important;
-  pointer-events: auto !important;
-  opacity: 1 !important;
+@media (min-width: 601px) and (max-width: 1024px) {
+  .desktop-nav .nav-links li {
+    font-size: 0.95em;
+    margin-right: 24px;
+  }
+}
+@media (max-width: 900px) {
+  .desktop-nav .nav-links li {
+    font-size: 0.85em;
+    margin-right: 16px;
+  }
+}
+@media (max-width: 600px) {
+  .desktop-nav .nav-links li {
+    font-size: 0.8em;
+    margin-right: 10px;
+  }
 }
 
 .desktop-nav .nav-icons {

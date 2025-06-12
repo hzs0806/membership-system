@@ -12,6 +12,7 @@ const Layout = ({ children }) => {
   const [showSupportCategories, setShowSupportCategories] = useState(false);
   const [hoveredItem, setHoveredItem] = useState(null);
   const hideTimeoutRef = useRef(null); // Ref to store the timeout ID
+  const [showReportTooltip, setShowReportTooltip] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -139,7 +140,18 @@ const Layout = ({ children }) => {
           </ul>
           <div className="nav-icons">
             <IoSearchOutline size={18} color="#333" />
-            <GoReport size={18} color="#333" />
+            <span
+              onMouseEnter={() => setShowReportTooltip(true)}
+              onMouseLeave={() => setShowReportTooltip(false)}
+              style={{ position: 'relative', display: 'inline-block' }}
+            >
+              <GoReport size={18} color="#333" />
+              {showReportTooltip && (
+                <div className="tooltip" style={{ top: '120%', left: '80%', whiteSpace: 'pre-line', width: '100px' }}>
+                  意见反馈
+                </div>
+              )}
+            </span>
           </div>
         </div>
 
